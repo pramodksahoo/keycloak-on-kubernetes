@@ -1,0 +1,4 @@
+org.bhn.provider.AppleJsonUserAttributeMapper
+org.bhn.provider.AppleUserAttributeMapper
+org.bhn.provider.AppleUsernameTemplateMapper
+#org.bhn.provider.AppleUserSessionNoteMapper

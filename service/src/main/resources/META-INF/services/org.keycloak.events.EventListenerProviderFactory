@@ -1,0 +1,5 @@
+org.bhn.eventlistener.UserRegisterListenerFactory
+org.bhn.eventlistener.UserLoginListenerFactory
+org.bhn.eventlistener.CreatePersonListenerFactory
+org.bhn.eventlistener.RevokeTokenListenerFactory
+
