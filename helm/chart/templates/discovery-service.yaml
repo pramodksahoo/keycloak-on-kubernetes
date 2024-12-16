@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-discovery
+spec:
+  clusterIP: None
+  ports:
+    - name: http
+      port: {{ .Values.service.http.port }}
+      protocol: TCP
+      targetPort: {{ .Values.container.http.port }}
+    - name: "8443"
+      port: {{ .Values.service.https.port }}
+      targetPort: {{ .Values.container.https.port }}
+  selector:
+    com.bhn.service: keycloak

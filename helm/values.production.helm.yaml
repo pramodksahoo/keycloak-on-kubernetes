@@ -1,0 +1,65 @@
+namespace: identity
+Environment: Production
+aws_region: "us-west-2"
+container:
+  image: 
+    repo: aws_account_id.dkr.ecr.us-west-2.amazonaws.com/app/identity/keycloak-on-kubernetes/keycloak
+    tag: buildversion
+  http:
+    port: 8080
+  https:
+    port: 8443
+  resources:
+    requests:
+      memory: 8G
+      cpu: 5
+    limits:
+      memory: 12G
+      cpu: 8
+
+JVM_OPTS:
+  mem: "-Xms7.75G -Xmx11.75G"
+
+service:
+  name: keycloak
+  http:
+    port: 8080
+  https:
+    port: 8443
+
+  
+keycloak:
+  keycloakDB: "mysql"
+  keycloakPassword: "<db-password>"
+  keycloakMaxPoolSize: "300"
+  keycloakMinPoolSize: "100"
+  keycloakDBPort: "3306"
+  keycloakDBUser: "keycloak"
+  keycloakDBHost: "<db-host>"
+  keycloakDBURL: "jdbc:mysql://<db_host>:3306/keycloak"
+
+statefulSet:
+  minReplicas: 6
+
+hpa:
+  enabled: true
+  maxReplicas: 8
+  targetCPUUtilization: 75
+  targetMemoryUtilization: 75
+
+ingress:
+  externaldns: iam.com
+  certificateARN: <cerificate_ARN>
+exIngress:
+  externaldns: <DNS_NAME>
+  certificateARN: "<certificate_ARN>"
+
+personsManagementQueue: "https://sqs.us-west-2.amazonaws.com/aws_account_id/USER-SERVICE-IDENTITY-PERSON-SYNC-QUEUE"
+emailNotificationQueue: "https://sqs.us-west-2.amazonaws.com/aws_account_id/USER-SERVICE-PERSON-EMAIL-NOTIFICATION-QUEUE"
+personIdentitySyncQueue: "https://sqs.us-west-2.amazonaws.com/aws_account_id/USER-SERVICE-PERSON-IDENTITY-SYNC-QUEUE"
+
+userManagementURL: "https://identity-person-management.com"
+PERSON_UPDATE_ROLE: "person-update"
+
+newRelicAppName: "<New-ralic_app_name>"
+newRelicLicenceKey: "<New-Ralic_KEY>"

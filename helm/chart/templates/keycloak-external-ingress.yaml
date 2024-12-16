@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.exIngress.certificateARN }}
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/target-group-attributes: stickiness.enabled=true,stickiness.lb_cookie.duration_seconds=60
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/actions.rule-path1: >
+      {"type":"fixed-response","fixedResponseConfig":{"contentType":"text/html","statusCode":"404","messageBody":"<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>404 Not Found</h1><p>The requested URL was not found on this server.</p></body></html>"}}
+  name: keycloak-external
+  namespace: {{ .Values.namespace }}
+spec:
+  ingressClassName: alb
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: rule-path1
+            port:
+              name: use-annotation
+        path: /admin/*
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+           name: rule-path1
+           port:
+             name: use-annotation
+        path: /realm/master/*
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: rule-path1
+            port:
+              name: use-annotation
+        path: /
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: {{ .Values.service.name }}
+            port:
+              number: {{ .Values.service.https.port }}
+        path: /*
+        pathType: ImplementationSpecific
+

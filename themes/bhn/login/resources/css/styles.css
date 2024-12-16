@@ -1,0 +1,307 @@
+:root {
+  --textColor: #555;
+  --textOffColor: #7c858d;
+  --baseColor: #23333f;
+  --baseDarkColor: #1e2b36;
+  --baseLightColor: #283b48;
+  --secColor: #11f7e2;
+}
+#LogoPlaceHolder {
+  padding-top: 20px;
+}
+
+.register-form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.register-form-row .form-group {
+  margin-right: 5px;
+  margin-bottom: 10px !important;
+}
+
+.register-form-row .form-group .pf-c-form__label {
+  display: inline-block;
+  position: absolute;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 0 4px;
+  margin-left: 5px;
+  font-size: 12px;
+  color: #6a6a6d;
+  z-index: 500;
+}
+
+.register-form-row .form-group .pf-c-form-control {
+  line-height: 36px;
+  height: auto;
+  border: 1px solid #6a6a6d;
+  transition: all 0.5s;
+}
+
+#kc-header{
+  margin-bottom: 20px
+}
+
+#CustomLogo {
+  content: url("../img/bhn_logo.svg");
+  width: 200px;
+  height: 50px;
+}
+
+body {
+  background: #482A9B;
+  background: -webkit-linear-gradient(bottom, #482A9B, #577FE1) !important;
+  background: -moz-linear-gradient(bottom, #482A9B, #577FE1) !important;
+  background: linear-gradient(to top, #482A9B, #577FE1) !important;
+  color: var(--textColor);
+  font-size: 18px;
+}
+
+/* Login Card */
+
+.login-pf-page .card-pf {
+  background: #fff;
+  border-radius: 10px;
+  /*
+  background: var(--baseColor);
+  box-shadow: 15px 15px 30px var(--baseDarkColor), -15px -15px 30px var(--baseLightColor);
+  */
+}
+
+/* Card Title */
+
+.login-pf-page .login-pf-header {
+  margin-bottom: 25px;
+}
+h1#kc-page-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#kc-page-title {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Login Form */
+
+.login-pf-page .form-group {
+  margin-bottom: 15px;
+}
+
+#input-error{
+  font-size: 14px;
+}
+
+.login-pf-page .form-control {
+  border: none;
+  padding: 22px 30px;
+  font-size: 18px;
+  color: var(--textColor);
+  height: auto;
+
+  border-radius: 32px;
+  background: var(--baseColor);
+  box-shadow: inset 15px 15px 30px var(--baseDarkColor), inset -15px -15px 30px var(--baseLightColor);
+}
+
+.login-pf-page .form-control::placeholder {
+  font-style: normal;
+  color: var(--textOffColor);
+}
+
+/* Remember Me Toggle */
+
+#kc-form-options .checkbox {
+  font-size: 16px;
+  color: var(--textOffColor);
+  margin-bottom: 0;
+}
+
+#kc-form-options label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 8px;
+}
+
+#kc-form-options .toggle {
+  isolation: isolate;
+  position: relative;
+  height: 30px;
+  width: 60px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: -8px -4px 8px var(--baseLightColor), 8px 4px 12px var(--baseDarkColor),
+    4px 4px 4px var(--baseDarkColor) inset, -4px -4px 4px var(--baseLightColor) inset;
+}
+
+#rememberMe {
+  display: none;
+}
+
+.register-back-login {
+  font-size: 15px;
+  color: #333;
+}
+
+.login-pf-settings a {
+  font-size: 15px;
+  color: #333;
+}
+
+#kc-form-options .dot {
+  height: 100%;
+  width: 200%;
+  background: var(--baseColor);
+  border-radius: 15px;
+  transform: translate3d(-75%, 0, 0);
+  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  box-shadow: -8px -4px 8px var(--baseLightColor), 8px 4px 12px var(--baseDarkColor);
+}
+
+#rememberMe:checked ~ .dot {
+  transform: translate3d(25%, 0, 0);
+}
+
+#kc-form-options .label-text {
+  margin-left: 16px;
+}
+
+#kc-form-buttons .pf-c-button {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  background: #333 !important;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #253743, #202e39);
+}
+
+/* Reset Password Link */
+
+#kc-form-reset-psw a {
+  font-size: 16px;
+  color: var(--secColor);
+  padding-right: 8px;
+}
+
+#kc-form-buttons {
+  margin-top: 20px;
+}
+
+/* Login Button */
+
+#kc-registration {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font-size: 17px;
+  color: #fff;
+  line-height: 27px;
+}
+
+#kc-registration a{
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #3e44fe;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 10px;
+  background: #333 !important;
+  color: #fff;
+}
+
+#kc-social-providers a {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #3e44fe;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 10px;
+  color: #fff;
+}
+
+
+#kc-social-providers a {
+  margin-left: 0px;
+  border: none;
+  border-radius: 10px;
+}
+
+#social-okta, #social-bhnoktadev {
+  background: rgb(35, 105, 221) !important;
+}
+
+#social-github {
+  background: rgb(51, 51, 51) !important;
+}
+
+#social-facebook{
+  background: rgb(59, 89, 152) !important;
+}
+
+#social-twitter{
+  background: #1bb2e9 !important;
+}
+
+#social-linkedin{
+  background: rgb(26, 129, 185) !important;
+}
+
+#social-google{
+  background: rgb(203, 63, 34) !important;
+}
+
+.kc-social-gray{
+  color: white;
+}
+
+#kc-form-login .pf-c-form__label {
+  display: inline-block;
+  position: absolute;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 0 4px;
+  margin-left: 5px;
+  font-size: 12px;
+  color: #6a6a6d;
+  z-index: 500;
+}
+
+#kc-form-login .pf-c-form-control {
+  height: auto;
+  border: 1px solid #6a6a6d;
+  transition: all 0.5s;
+}
+
+#kc-form-login .pf-c-form-control:focus + #kc-form-login .pf-c-form__label{
+  top:0;
+}
+
+
+#kc-info-wrapper{
+  border-radius: 10px;
+  background-color: #fff !important;
+}
+
+#kc-login {
+  border: none;
+  padding: 22px 30px;
+  font-size: 18px;
+  
+  background: #333 !important;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #253743, #202e39);
+}
+
+#kc-login:active:focus {
+  background: linear-gradient(145deg, #202e39, #253743) !important;
+  outline: none;
+}
